@@ -16,7 +16,7 @@ public class Factorialtable {
 		      fact=fact*i;    
 		  }    
 		  System.out.println(number+"!="+fact);
-		 
 	  
 	}
+  }
 }
