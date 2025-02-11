@@ -2,22 +2,22 @@ package com.celcom.day6;
 
 import java.util.Scanner;
 
-class NoVovelException extends Exception {
+class NoVowelException extends Exception {
 	String str;
 
-	public NoVovelException(String str) {
+	public NoVowelException(String str) {
 		this.str = str;
 	}
 
 	@Override
 	public String toString() {
-		return "Vovel is not present in " + str;
+		return "Vowel is not present in " + str;
 	}
 }
 
 public class Assignment2 {
 
-	static boolean isVovel(char ch) {
+	static boolean isVowel(char ch) {
 		String str = "aeiouAEIOU";
 		return (str.indexOf(ch) != -1);
 	}
@@ -31,18 +31,18 @@ public class Assignment2 {
 
 		for (int i = 0; i < str.length(); i++) {
 			char a = str.charAt(i);
-			if (isVovel(a)) {
+			if (isVowel(a)) {
 				flag = true;
 				break;
 			}
 		}
 
 		if (flag) {
-			System.out.println(str + " contain vovel");
+			System.out.println(str + " contain vowel");
 		} else {
 			try {
-				throw new NoVovelException(str);
-			} catch (NoVovelException e) {
+				throw new NoVowelException(str);
+			} catch (NoVowelException e) {
 				System.out.println(e);
 			}
 		}
