@@ -1,6 +1,6 @@
 package com.celcom.day3;
 
-class Vehicle{
+class Vehicle {
 	void noOfEngine() {
 		System.out.println("I have one Engine");
 	}
@@ -12,7 +12,7 @@ class TwoWheeler extends Vehicle {
 	}
 }
 
-class Bike extends TwoWheeler {
+class Bike1 extends TwoWheeler {
 	void brandName() {
 		System.out.println("My Brand Name is HONDA");
 	}
@@ -24,21 +24,18 @@ class Scooty extends TwoWheeler {
 	}
 }
 
-
 public class HierachicalInheritanceExample {
 
 	public static void main(String[] args) {
-		Bike honda = new Bike();
+		Bike1 honda = new Bike1();
 		honda.noOfWheels();
 		honda.noOfEngine();
 		honda.brandName();
-		
+
 		Scooty activa = new Scooty();
 		activa.noOfWheels();
 		activa.noOfEngine();
 		activa.brandName();
-		
-		
-			
-}
+
+	}
 }

@@ -4,9 +4,9 @@ public class JavaBean {
 	private int eid;
 	private String ename;
 	private float esalary;
-	
+
 	public JavaBean() {
-		
+
 	}
 
 	public JavaBean(int eid, String ename, float esalary) {
@@ -38,11 +38,9 @@ public class JavaBean {
 	public void setEsalary(float esalary) {
 		this.esalary = esalary;
 	}
-	
+
 	public static void main(String[] args) {
 		JavaBean obj = new JavaBean(75, "Nithin", 40000.0f);
 	}
-	
-	
-	
+
 }
