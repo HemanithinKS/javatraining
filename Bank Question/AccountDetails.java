@@ -24,13 +24,13 @@ public class AccountDetails {
 
     public void deposit(double amount) {
         balance += amount;
-        transactionHistory.add("Deposited: $" + amount);
+        transactionHistory.add("Deposited:" + amount + "Balance:" + balance);
     }
 
     public boolean withDraw(double amount) {
         if (balance >= amount) {
             balance -= amount;
-            transactionHistory.add("Withdrew: $" + amount);
+            transactionHistory.add("Withdrew:" + amount + "Balance:" + balance);
             return true;
         } else {
             return false;
