@@ -42,6 +42,5 @@ public class AccountDetails {
         for (String transaction : transactionHistory) {
             System.out.println(transaction);
         }
-        System.out.println("------------------------");
     }
 }
