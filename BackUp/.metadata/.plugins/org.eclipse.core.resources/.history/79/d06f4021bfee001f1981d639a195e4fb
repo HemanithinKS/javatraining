@@ -1,0 +1,33 @@
+package com.celcom.Bank;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class AccountList {
+    private List<AccountDetails> bank = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
+
+    public void setData() {
+        System.out.print("Enter Account Number, Name, Branch, Phone, Initial Balance, and PIN: ");
+        int accountNumber = sc.nextInt();
+        String name = sc.next();
+        String branch = sc.next();
+        long phone = sc.nextLong();
+        double balance = sc.nextDouble();
+        int pin = sc.nextInt();
+
+        bank.add(new AccountDetails(accountNumber, name, branch, phone, balance, pin));
+        System.out.println("Account Created Successfully.");
+    }
+
+    public void viewTransactionHistory(int accountNumber) {
+        for (AccountDetails acc : bank) {
+            if (acc.accountNumber == accountNumber) {
+                System.out.println(acc.getTransactionHistory());
+                return;
+            }
+        }
+        System.out.println("Account not found.");
+    }
+}
+

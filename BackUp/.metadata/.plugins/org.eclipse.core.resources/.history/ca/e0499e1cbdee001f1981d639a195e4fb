@@ -1,0 +1,12 @@
+// View transaction history
+void viewTransactionHistory(int accountNumber) {
+    AccountDetails account = findAccount(accountNumber);
+    if (account != null) {
+        System.out.println("Transaction History for Account " + accountNumber + ":");
+        for (String transaction : account.getTransactionHistory()) {
+            System.out.println(transaction);
+        }
+    } else {
+        System.out.println("Account not found.");
+    }
+}

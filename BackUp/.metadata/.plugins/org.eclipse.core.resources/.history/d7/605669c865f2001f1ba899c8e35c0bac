@@ -1,0 +1,9 @@
+package com.celcom.day12;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetExample {
+	Set<String> st =new HashSet<>();
+	
+}

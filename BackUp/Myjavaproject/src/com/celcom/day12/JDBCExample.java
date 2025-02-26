@@ -1,0 +1,93 @@
+package com.celcom.day12;
+
+import java.sql.*;
+
+public class JDBCExample {
+    public static void main(String[] args) {
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/demo";
+        String userName = "root";
+        String password = "nithin123";
+
+        // SQL Queries for DDL and DML operations
+        String createTable = "CREATE TABLE IF NOT EXISTS Book (bookName VARCHAR(20), authorName VARCHAR(20))";
+        String alterTable = "ALTER TABLE Book ADD COLUMN publishedYear INT";
+        String insertValue = "INSERT INTO Book (bookName, authorName, publishedYear) VALUES (?, ?, ?)";
+        String updateValue = "UPDATE Book SET authorName = ? WHERE bookName = ?";
+        String deleteValue = "DELETE FROM Book WHERE bookName = ?";
+        String selectQuery = "SELECT * FROM Book";
+        String dropTable = "DROP TABLE IF EXISTS Book";
+
+        // JDBC connection and statement objects
+        Connection conn = null;
+        Statement stmt = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Step 1: Establishing Database Connection
+            conn = DriverManager.getConnection(url, userName, password);
+
+//            // Step 2: Creating Statement
+//            stmt = conn.createStatement();
+//
+//            // Step 3: Executing DDL - Create Table
+//            stmt.executeUpdate(createTable);
+//
+//            // Step 4: Check if Column Exists Before Altering Table
+//            boolean columnExists = false;
+//            rs = conn.getMetaData().getColumns(null, null, "Book", "publishedYear");
+//            if (rs.next()) {
+//                columnExists = true; // Column exists
+//            }
+//            if (!columnExists) {
+//                stmt.executeUpdate(alterTable); // Add column only if it does not exist
+//            }
+
+            // Step 5: Executing DML - Insert Data
+            pstmt = conn.prepareStatement(insertValue);
+            pstmt.setString(1, "Dairy of a Wimpy Kid");
+            pstmt.setString(2, "Jeff Kinney");
+            pstmt.setInt(3, 2007);
+            pstmt.executeUpdate();
+
+            // Step 6: Executing DML - Update Data
+            pstmt = conn.prepareStatement(updateValue);
+            pstmt.setString(1, "Updated Author");
+            pstmt.setString(2, "Dairy of a Wimpy Kid");
+            pstmt.executeUpdate();
+
+//            // Step 7: Executing DML - Delete Data
+//            pstmt = conn.prepareStatement(deleteValue);
+//            pstmt.setString(1, "Dairy of a Wimpy Kid");
+//            pstmt.executeUpdate();
+
+            // Step 8: Executing DML - Select Data
+            rs = pstmt.executeQuery(selectQuery);
+            while (rs.next()) {
+                String bookName = rs.getString("bookName");
+                String authorName = rs.getString("authorName");
+                int publishedYear = rs.getInt("publishedYear");
+				System.out.println(bookName+ " "+ authorName + " "+publishedYear);
+
+
+            }
+//
+//            // Step 9: Executing DDL - Drop Table
+//            stmt.executeUpdate(dropTable);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Step 10: Closing Resources Manually
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}

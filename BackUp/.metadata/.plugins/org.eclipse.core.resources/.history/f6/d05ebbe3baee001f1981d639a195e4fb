@@ -1,0 +1,78 @@
+package com.celcom.Bank;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+class AccountList{
+	
+	private Map<Integer,Account> bank = new HashMap<>();
+	
+	Scanner sc = new Scanner(System.in);
+	
+	
+	Account account = new Account(sc.nextInt(), sc.next(), sc.next(), sc.nextLong());
+	
+	
+	void deposit(int amount)
+	{
+		
+		account.deposit(amount);
+		System.out.println("Amount was successfully credited");
+	}
+	
+	void withDraw(int amount) {
+		
+		account.withDraw(amount);
+		System.out.println("Amount Debited successfully");
+	}
+	
+	void setData() {
+		
+		if(bank.containsKey(account.accountNumber))
+		{
+			
+			System.out.println("Account Already Exist");
+		}
+		else {
+			
+			bank.put(account.accountNumber, account);
+		}
+		
+		System.out.println("--------------------");
+	}
+	
+	
+	//To get Current account details
+	void getCurrentAccountDetails() {
+		
+		System.out.println("Account Holder Name :" + bank.get(account.accountNumber).accountHolderName);
+		System.out.println("Account Number :" + bank.get(account.accountNumber).accountNumber);
+		System.out.println("Branch Name :" + bank.get(account.accountNumber).branchName);
+		System.out.println("Account Balance :" + bank.get(account.accountNumber).balance);
+		System.out.println("Customer Phone Number :" + bank.get(account.accountNumber).phoneNumber );
+		System.out.println("-----------------------");
+		
+	}
+	
+	//To get All acount details
+	void getAllAccountDetails() {
+		
+		for(Account allDetails : bank.values()) {
+			
+			System.out.println("Account HolderName :" + allDetails.accountHolderName);
+			System.out.println("Account Number :" + allDetails.accountNumber);
+			System.out.println("Branch Name :" + allDetails.branchName);
+			System.out.println("Customer Phone Number :" + allDetails.phoneNumber);
+			System.out.println("Account Balance :" + allDetails.balance);
+			System.out.println("------------------------");
+			
+			
+		}
+	}
+	
+	
+	
+	
+	
+}

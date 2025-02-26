@@ -1,0 +1,32 @@
+package com.celcom.day12;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetExample {
+	public static void main(String[] args) {
+		Set<String> st =new ArrayList()<String>();
+		st.add("Hello");
+		st.add("123");
+		st.add("hel1lo");
+		st.add("H123ello");
+		st.add(null);
+		
+		
+		System.out.println(st);
+		
+		Set<String> st1 =new HashSet<>();
+		
+		st1.addAll(st);
+		st1.add("12345");
+        System.out.println(st1);
+ //       st.clear();
+        st.remove("123");
+		System.out.println(st);
+		
+
+		
+		
+	}
+}

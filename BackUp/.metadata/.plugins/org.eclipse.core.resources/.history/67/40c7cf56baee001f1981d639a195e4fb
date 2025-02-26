@@ -1,0 +1,60 @@
+package com.celcom.Bank;
+
+public class AccountDetails {
+
+	int accountNumber;
+	String accountHolderName;
+	String branchName;
+	long phoneNumber;
+	double balance;
+	AccountDetails(int accountNumber, String accountHolderName, String branchName, long phoneNumber, double balance) {
+		super();
+		this.accountNumber = accountNumber;
+		this.accountHolderName = accountHolderName;
+		this.branchName = branchName;
+		this.phoneNumber = phoneNumber;
+		this.balance = balance;
+	}
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
+	}
+	public String getBranchName() {
+		return branchName;
+	}
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	void deposit(int amount) {
+		
+		balance += amount;
+	}
+	
+	//To withdraw amount
+	void withDraw(int amount)
+	{
+		balance -= amount;
+	}
+	
+}

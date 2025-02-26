@@ -1,0 +1,57 @@
+package com.celcom.Bank;
+
+import java.util.Scanner;
+
+class Bank {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        AccountList bank = new AccountList();
+
+        while (true) {
+            System.out.println("\nPlease enter your choice:");
+            System.out.println(" 1. Create Account\n 2. Deposit\n 3. Withdraw\n 4. Get All Account Details\n 5. Get Your Account Details\n 6. Exit");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    bank.setData();  // Create a new account
+                    break;
+
+                case 2:
+                    System.out.println("Enter Account Number:");
+                    int depositAccountNumber = sc.nextInt();
+                    System.out.println("Enter Amount to Deposit:");
+                    double depositAmount = sc.nextDouble();
+                    bank.deposit(depositAccountNumber, depositAmount);
+                    break;
+
+                case 3:
+                    System.out.println("Enter Account Number:");
+                    int withdrawAccountNumber = sc.nextInt();
+                    System.out.println("Enter Amount to Withdraw:");
+                    double withdrawAmount = sc.nextDouble();
+                    bank.withDraw(withdrawAccountNumber, withdrawAmount);
+                    break;
+
+                case 4:
+                    System.out.println("Fetching All Account Details...");
+                    bank.getAllAccountDetails();
+                    break;
+
+                case 5:
+                    System.out.println("Enter Your Account Number:");
+                    int accountNumber = sc.nextInt();
+                    bank.getCurrentAccountDetails(accountNumber);
+                    break;
+
+                case 6:
+                    System.out.println("Exiting the program...");
+                    sc.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice! Please enter a valid option.");
+            }
+        }
+    }
+}

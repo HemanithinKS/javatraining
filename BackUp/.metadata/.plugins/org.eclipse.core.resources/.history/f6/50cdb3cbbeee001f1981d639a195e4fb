@@ -1,0 +1,54 @@
+package com.celcom.Bank;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AccountDetails {
+	int accountNumber;
+	String accountHolderName;
+	String branchName;
+	long phoneNumber;
+	double balance;
+	private int pin;
+	private List<String> transactionHistory;
+
+	// Constructor
+	AccountDetails(int accountNumber, String accountHolderName, String branchName, long phoneNumber, double balance,
+			int pin) {
+		this.accountNumber = accountNumber;
+		this.accountHolderName = accountHolderName;
+		this.branchName = branchName;
+		this.phoneNumber = phoneNumber;
+		this.balance = balance;
+		this.pin = pin;
+		this.transactionHistory = new ArrayList<>();
+		transactionHistory.add("Account created with initial balance: ₹" + balance);
+	}
+
+	// Verify PIN
+	public boolean verifyPin(int enteredPin) {
+		return this.pin == enteredPin;
+	}
+
+	// Deposit money
+	void deposit(double amount) {
+		balance += amount;
+		transactionHistory.add("Deposited ₹" + amount + " | New Balance: ₹" + balance);
+	}
+
+	// Withdraw money
+	void withDraw(double amount) {
+		if (amount > balance) {
+			transactionHistory.add("Failed Withdrawal of ₹" + amount + " | Insufficient Balance");
+			System.out.println("Insufficient balance! Transaction failed.");
+		} else {
+			balance -= amount;
+			transactionHistory.add("Withdrawn ₹" + amount + " | New Balance: ₹" + balance);
+		}
+	}
+
+	// Get transaction history
+	public List<String> getTransactionHistory() {
+		return transactionHistory;
+	}
+}

@@ -1,0 +1,7 @@
+package com.celcom.CustomerOracle;
+
+public class DataBaseConnection {
+	String url="jdbc:oracle:thin:@localhost:1521:XE";user="demo";
+	String pass = "demo";
+
+}

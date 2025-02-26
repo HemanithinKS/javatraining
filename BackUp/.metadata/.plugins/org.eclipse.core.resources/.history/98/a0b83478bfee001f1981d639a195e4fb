@@ -1,0 +1,58 @@
+package com.celcom.Bank;
+import java.util.ArrayList;
+import java.util.List;
+
+class AccountList {
+    private List<AccountDetails> bank = new ArrayList<>();
+
+    // Find account by account number
+    private AccountDetails findAccount(int accountNumber) {
+        for (AccountDetails account : bank) {
+            if (account.accountNumber == accountNumber) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    // Deposit money
+    public void deposit(int accountNumber, double amount) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            account.deposit(amount);
+            System.out.println("Amount successfully deposited.");
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+
+    // Withdraw money
+    public void withDraw(int accountNumber, double amount) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            if (account.balance >= amount) {
+                account.withDraw(amount);
+                System.out.println("Amount successfully withdrawn.");
+            } else {
+                System.out.println("Insufficient balance.");
+            }
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+
+    // Get current account details
+    public void getCurrentAccountDetails(int accountNumber) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            System.out.println("Account Holder Name: " + account.accountHolderName);
+            System.out.println("Account Number: " + account.accountNumber);
+            System.out.println("Branch Name: " + account.branchName);
+            System.out.println("Customer Phone Number: " + account.phoneNumber);
+            System.out.println("Account Balance: " + account.balance);
+            System.out.println("------------------------");
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+}

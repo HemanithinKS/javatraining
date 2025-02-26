@@ -1,0 +1,16 @@
+package com.celcom.CustomerOracle;
+
+public class Customer {
+	private String Name;
+	private String Dob;
+	private String fatherName;
+	private long aadharNumber ;
+	private int PhoneNumber;
+	
+	
+	
+
+	
+	
+	
+}

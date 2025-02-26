@@ -1,0 +1,57 @@
+package com.celcom.day12;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JDBCExample {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/demo"; // Fixed URL
+        String userName = "root";
+        String password = "nithin123";
+
+        // Table creation query
+        String createTable = "CREATE TABLE IF NOT EXISTS Book (bookName VARCHAR(20), authorName VARCHAR(20))";
+        
+        // Insert query
+        String insertValue = "INSERT INTO Book(bookName, authorName) VALUES (?, ?)";
+
+        // Database connection
+        try (Connection conn = DriverManager.getConnection(url, userName, password);
+             Statement st = conn.createStatement()) {
+
+            System.out.println("Database connected successfully!");
+
+            // Create table if not exists
+            st.executeUpdate(createTable);
+
+            // Insert values
+            insertValue(conn, "dairy2", "ram");
+            insertValue(conn, "book3", "shyam");
+
+        } catch (SQLException e) {
+            System.err.println("Database connection failed!");
+            e.printStackTrace();
+        }
+    }
+
+    // Method to insert values into the database
+    public static void insertValue(Connection conn, String bookName, String authorName) {
+        String insertSQL = "INSERT INTO Book(bookName, authorName) VALUES (?, ?)";
+        try  {
+        	PreparedStatement pstmt = conn.prepareStatement(insertSQL)
+            pstmt.setString(1, bookName);
+            pstmt.setString(2, authorName);
+
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("Inserted: " + bookName + " by " + authorName);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error inserting data!");
+            e.printStackTrace();
+        }
+    }
+}

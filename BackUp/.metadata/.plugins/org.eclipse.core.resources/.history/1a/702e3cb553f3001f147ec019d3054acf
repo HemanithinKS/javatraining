@@ -1,0 +1,16 @@
+package com.celcom.day13;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Merge2GenericList {
+	public static <T> List<T> mergeList(List<T> list1, List<T> list2) {
+		List<T> mergedList = new ArrayList<T>();
+		for (int i = 0; (i < list1.size()) && (i < list2.size()); i++) {
+
+		}
+
+		return mergedList;
+
+	}
+}

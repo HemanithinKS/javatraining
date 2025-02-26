@@ -1,0 +1,48 @@
+package com.celcom.CustomerOracle;
+
+public class Customer {
+	private String Name;
+	private String Dob;
+	private int PhoneNumber;
+	private double Bill;
+	
+	
+	Customer(String name, String dob, int phoneNumber, double bill) {
+		super();
+		Name = name;
+		Dob = dob;
+		PhoneNumber = phoneNumber;
+		Bill = bill;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getDob() {
+		return Dob;
+	}
+	public void setDob(String dob) {
+		Dob = dob;
+	}
+	public int getPhoneNumber() {
+		return PhoneNumber;
+	}
+	public void setPhoneNumber(int phoneNumber) {
+		PhoneNumber = phoneNumber;
+	}
+	public double getBill() {
+		return Bill;
+	}
+	public void setBill(double bill) {
+		Bill = bill;
+	}
+	@Override
+	public String toString() {
+		return "Customer [Name=" + Name + ", Dob=" + Dob + ", PhoneNumber=" + PhoneNumber + ", Bill=" + Bill + "]";
+	}
+	
+	
+	
+}

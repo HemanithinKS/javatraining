@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="findhistory">
+			<item value="line"/>
+			<item value="map"/>
+			<item value="lhmap"/>
+			<item value="hmap"/>
+			<item value="ADMIN_PASSWORD"/>
+			<item value="ADMIN_USERNAME"/>
+			<item value="arr"/>
+			<item value="Throwable"/>
+			<item value="vovel"/>
+			<item value="addition"/>
+			<item value="Input"/>
+		</list>
+		<list key="replacehistory">
+			<item value="tmap"/>
+			<item value="hmap"/>
+			<item value="lhmap"/>
+			<item value="adminPassword"/>
+			<item value="adminUsername"/>
+			<item value="list"/>
+			<item value="concat"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="567"/>
+		<item key="DIALOG_Y_ORIGIN" value="308"/>
+	</section>
+</section>

@@ -1,0 +1,33 @@
+package com.celcom.day12;
+
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JDBCExample {
+	public static void main(String[] args) {
+		String url = "jdbc:mysql://localhost:3306/demo"; // Fixed URL
+		String userName = "root";
+		String password = "nithin123";
+		String createTable ="create table Book(bookName varchar(20), authorName varchar(20))";
+		String insertValue ="insert into Book(bookname,authorName) values ('dairy','nithin')";
+
+		try {
+			
+			Connection conn = DriverManager.getConnection(url, userName, password);
+
+			System.out.println("Database connected successfully!");
+			Statement st =conn.createStatement();
+			
+			st.executeUpdate(insertValue);
+			;
+//			PreparedStatement prepstat =conn.prepareStatement();
+
+		} catch (SQLException e) {
+			System.err.println("Database connection failed!");
+			e.printStackTrace();
+		}
+	}
+}

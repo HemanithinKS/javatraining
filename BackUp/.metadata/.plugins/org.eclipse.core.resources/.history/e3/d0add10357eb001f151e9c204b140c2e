@@ -1,0 +1,26 @@
+package com.celcom.assignment2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+public class Assignment1ArraySearch {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<Integer> arr = new ArrayList<>();
+		int a = 0;
+		while (a != -1) {
+			a=sc.nextInt();
+			arr.add(a);
+		}
+		int find=sc.nextInt();
+		if (arr.contains(find)) {
+			System.out.println("Element " + find + " is present");
+			
+		} else {
+			System.out.println("Element " + find + " is not present in arraylist");
+		}
+
+	
+}

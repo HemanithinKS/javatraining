@@ -1,0 +1,12 @@
+package com.celcom.CustomerOracle;
+
+import java.util.Scanner;
+
+public class CustomerMenu {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	while (true) {
+		
+	}
+}
+}

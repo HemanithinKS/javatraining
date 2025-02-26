@@ -1,0 +1,27 @@
+package com.celcom.day12;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetExample {
+	public static void main(String[] args) {
+		Set<String> st =new HashSet<>();
+		st.add("Hello");
+		st.add("123");
+		st.add("hel1lo");
+		st.add("H123ello");
+		st.add(null);
+		
+		
+		System.out.println(st);
+		
+		Set<String> st1 =new HashSet<>();
+		
+		st1.addAll(st);
+        s
+		
+
+		
+		
+	}
+}

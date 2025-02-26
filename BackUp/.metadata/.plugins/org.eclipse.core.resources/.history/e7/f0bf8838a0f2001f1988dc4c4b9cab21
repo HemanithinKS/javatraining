@@ -1,0 +1,48 @@
+package EmployeeMS;
+
+import java.util.Scanner;
+
+public class Menu {
+public static void main(String[] args) {
+	Scanner sc= new Scanner(System.in);
+	while (true) {
+		Thread.sleep(2000);
+		System.out.println();
+		System.out.println("\nEmployee Management System");
+		System.out.println("1. ADD EMPLOYEE");
+		System.out.println("2. Remove Employee");
+		System.out.println("3. Edit Details");
+		System.out.println("4. Query age");
+		System.out.println("5. Search Employee");
+		System.out.println("5. View All Employee");	
+		System.out.println("6. Exit");
+		System.out.println("Enter your choice: ");
+
+		int choice = sc.nextInt();
+
+		switch (choice) {
+		case 1:
+			obj.addEmployee();
+			break;
+		case 2:
+			obj.removeEmployee();
+			break;
+		case 3:
+			obj.completeTask();
+			break;
+		case 4:
+			obj.();
+			break;
+		case 5:
+			obj.searchTask();
+			break;
+		case 6:
+			System.out.println("Exiting Task Management System. Goodbye!");
+			return;
+		default:
+			System.out.println("Invalid choice! ");
+		}
+	}
+
+}
+}

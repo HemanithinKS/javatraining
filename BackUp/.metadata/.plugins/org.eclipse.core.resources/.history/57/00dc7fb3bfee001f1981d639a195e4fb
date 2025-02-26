@@ -1,0 +1,79 @@
+package com.celcom.Bank;
+import java.util.Scanner;
+
+class Admin {
+    private AccountList accountList;
+    private final String ADMIN_USERNAME = "admin";
+    private final String ADMIN_PASSWORD = "admin123";
+
+    public Admin(AccountList accountList) {
+        this.accountList = accountList;
+    }
+
+    // Admin Login
+    public boolean login() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Admin Username: ");
+        String username = sc.next();
+        System.out.print("Enter Admin Password: ");
+        String password = sc.next();
+
+        if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+            System.out.println("Admin login successful!\n");
+            return true;
+        } else {
+            System.out.println("Invalid credentials! Access denied.");
+            return false;
+        }
+    }
+
+    // Admin Menu
+    public void adminMenu() {
+        if (!login()) return;
+
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n====== ADMIN MENU ======");
+            System.out.println("1. View All Accounts");
+            System.out.println("2. Delete an Account");
+            System.out.println("3. Reset an Account PIN");
+            System.out.println("4. View Account Transaction History");
+            System.out.println("5. Exit Admin Mode");
+            System.out.print("Enter your choice: ");
+
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    accountList.getAllAccountDetails();
+                    break;
+
+                case 2:
+                    System.out.print("Enter Account Number to Delete: ");
+                    int accNumToDelete = sc.nextInt();
+                    accountList.deleteAccount(accNumToDelete);
+                    break;
+
+                case 3:
+                    System.out.print("Enter Account Number to Reset PIN: ");
+                    int accNumToReset = sc.nextInt();
+                    System.out.print("Enter New PIN: ");
+                    int newPin = sc.nextInt();
+                    accountList.resetPin(accNumToReset, newPin);
+                    break;
+
+                case 4:
+                    System.out.print("Enter Account Number to View Transaction History: ");
+                    int accNumToView = sc.nextInt();
+                    accountList.viewTransactionHistory(accNumToView);
+                    break;
+
+                case 5:
+                    System.out.println("Exiting Admin Mode.");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        }
+    }
+}

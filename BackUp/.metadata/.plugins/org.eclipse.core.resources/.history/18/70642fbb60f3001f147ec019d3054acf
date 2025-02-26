@@ -1,0 +1,22 @@
+package com.celcom.CustomerOracle;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class CustomerFunction {
+	Connection con=DataBaseConnection.getConnection();
+	void createTable() {
+		String createTable="create table CUSTOMER (ID int,DOB varchar(25),Address varchar(25),fatherName varchar(25),phoneNumeber varchar(15), AadharNumber varchar(12))";
+		try {
+			PreparedStatement pt= con.prepareStatement(createTable);
+			pt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Creating table error");
+			e.printStackTrace();
+		}
+	}
+	void addCustomer() {
+		String addCustomer="insert into CUSTOMER(ID,DOB,Address,fathername,phoneNumber,AadharNumber) values(?,?,?,?,?,?)";
+	}
+}

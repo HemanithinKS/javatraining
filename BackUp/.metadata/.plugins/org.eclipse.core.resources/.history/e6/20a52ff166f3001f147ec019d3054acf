@@ -1,0 +1,54 @@
+package com.celcom.CustomerOracle;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class CustomerFunction {
+	Connection con=DataBaseConnection.getConnection();
+	Scanner sc=new Scanner(System.in);
+	void createTable() {
+		String createTable="create table CUSTOMER (ID int,Name varchar(155),DOB varchar(25),Address varchar(25),fatherName varchar(25),phoneNumeber varchar(15), AadharNumber varchar(12))";
+		try {
+			PreparedStatement pt= con.prepareStatement(createTable);
+			pt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Creating table error");
+			e.printStackTrace();
+		}
+	}
+	void addCustomer() {
+		String addCustomer="insert into CUSTOMER(ID,Name,DOB,Address,fatherName,phoneNumber,AadharNumber) values(?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement pt = con.prepareStatement(addCustomer);
+			int id=1;
+			
+			pt.setString(1,"id");id++;
+			System.out.println("Enter The Name:");
+			String name=sc.next();
+			pt.setString(2, name);
+			System.out.println("Enter The DOB:");
+			String DOB=sc.next();
+			pt.setString(3, DOB);
+			System.out.println("Enter the Address");
+			String Address=sc.next();
+			pt.setString(4, Address);
+			System.out.println("Enter The Father Name:");
+			String Fname=sc.next();
+			pt.setString(5, Fname);
+			System.out.println("Enter The Phone Number:");
+			String pnum=sc.next();
+			pt.setString(6, pnum);
+			System.out.println("Enter The Aadhar Number:");
+			String anum=sc.next();
+			pt.setString(7, anum);
+			System.out.println("Added succesfully");
+			
+		} catch (SQLException e) {
+			System.out.println("Adding error");
+			e.printStackTrace();
+		}
+		
+	}
+}

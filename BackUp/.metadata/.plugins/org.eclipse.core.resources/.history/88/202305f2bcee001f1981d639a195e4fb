@@ -1,0 +1,94 @@
+package com.celcom.Bank;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class AccountList {
+
+    private List<AccountDetails> bank = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
+
+    // Method to find an account by its number
+    private AccountDetails findAccount(int accountNumber) {
+        for (AccountDetails account : bank) {
+            if (account.getAccountNumber() == accountNumber) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    // Method to add an account
+    void setData() {
+        System.out.println("Enter Account Number:");
+        int accountNumber = sc.nextInt();
+        sc.nextLine(); // Consume leftover newline
+
+        System.out.println("Enter Account Holder Name:");
+        String accountHolderName = sc.nextLine();
+
+        System.out.println("Enter Branch Name:");
+        String branchName = sc.nextLine();
+
+        System.out.println("Enter Phone Number:");
+        long phoneNumber = sc.nextLong();
+
+        System.out.println("Enter Initial Balance:");
+        double balance = sc.nextDouble();
+
+        // Check if account already exists
+        if (findAccount(accountNumber) != null) {
+            System.out.println("Account Already Exists.");
+            return;
+        }
+
+        // Create and add new account
+        AccountDetails account = new AccountDetails(accountNumber, accountHolderName, branchName, phoneNumber, balance);
+        bank.add(account);
+        System.out.println("Account Created Successfully.");
+        System.out.println("--------------------");
+    }
+
+    // Deposit money
+    void deposit(int accountNumber, double amount) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            account.deposit(amount);
+            System.out.println("Amount of ₹" + amount + " was successfully credited.");
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+
+    // Withdraw money
+    void withDraw(int accountNumber, double amount) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            account.withDraw(amount);
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+
+    // Retrieve a single account's details
+    void getCurrentAccountDetails(int accountNumber) {
+        AccountDetails account = findAccount(accountNumber);
+        if (account != null) {
+            System.out.println(account);
+        } else {
+            System.out.println("Account not found.");
+        }
+    }
+
+    // Retrieve all account details
+    void getAllAccountDetails() {
+        if (bank.isEmpty()) {
+            System.out.println("No accounts found.");
+            return;
+        }
+        for (AccountDetails account : bank) {
+            System.out.println(account);
+        }
+    }
+}

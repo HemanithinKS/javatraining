@@ -1,0 +1,7 @@
+package com.celcom.day12;
+
+public class JDBCExample {
+	String url = "jjdbc:mysql://localhost:3306/demo";
+	String userName = "root";
+	String password = "nithin123";
+}

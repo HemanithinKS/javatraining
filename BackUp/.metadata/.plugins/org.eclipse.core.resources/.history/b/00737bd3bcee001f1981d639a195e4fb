@@ -1,0 +1,88 @@
+package com.celcom.Bank;
+
+public class AccountDetails {
+
+	private int accountNumber;
+	private String accountHolderName;
+	private String branchName;
+	private long phoneNumber;
+	private double balance;
+
+	// Constructor
+	public AccountDetails(int accountNumber, String accountHolderName, String branchName, long phoneNumber,
+			double balance) {
+		this.accountNumber = accountNumber;
+		this.accountHolderName = accountHolderName;
+		this.branchName = branchName;
+		this.phoneNumber = phoneNumber;
+		this.balance = balance;
+	}
+
+	// Getters and Setters
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(int accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
+	}
+
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	// Deposit amount
+	public void deposit(double amount) {
+		if (amount > 0) {
+			balance += amount;
+			System.out.println("Deposited: ₹" + amount);
+		} else {
+			System.out.println("Invalid deposit amount.");
+		}
+	}
+
+	// Withdraw amount
+	public void withDraw(double amount) {
+		if (amount > 0 && amount <= balance) {
+			balance -= amount;
+			System.out.println("Withdrawn: ₹" + amount);
+		} else {
+			System.out.println("Insufficient balance or invalid amount.");
+		}
+	}
+
+	// Override toString() to display account details easily
+	@Override
+	public String toString() {
+		return "Account Details:\n" + "Account Number: " + accountNumber + "\n" + "Account Holder: " + accountHolderName
+				+ "\n" + "Branch: " + branchName + "\n" + "Phone: " + phoneNumber + "\n" + "Balance: ₹" + balance;
+	}
+}

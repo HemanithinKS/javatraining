@@ -1,0 +1,31 @@
+package EmployeeMS;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JDBC {
+		private static Connection con;
+	static {
+		try {
+			con  =DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "nithin123");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Database connected");
+	}
+	
+	void createTable() {
+		String createTable="create table Employee ( EID int , Ename varchar(250), age int, email varchar(250), address varchar(250) ,PRIMARY KEY (ID);";
+		PreparedStatement st = con.prepareStatement(createTable);
+		st.executeQuery();
+	}
+	public static void main(String[] args) {
+	
+		}
+		
+		
+	}
+}

@@ -1,0 +1,10 @@
+package com.celcom.Bank;
+
+public class AccountDetails {
+
+	int accountNumber;
+	String accountHolderName;
+	String branchName;
+	long phoneNumber;
+	double balance;
+}

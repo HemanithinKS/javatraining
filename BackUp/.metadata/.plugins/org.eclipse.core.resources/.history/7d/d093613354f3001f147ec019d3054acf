@@ -1,0 +1,37 @@
+package com.celcom.day13;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+//public static <T> List<T> mergeList(List<T> list1, List<T> list2) {
+//	List<T> mergedList = new ArrayList<T>();
+//	
+//	
+//
+//
+//	return mergedList;
+//
+//}
+public class Merge2GenericList {
+	public static <T> void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		List<String> list1= new ArrayList<>();
+		List<Integer> list2= new ArrayList<>();
+		
+		list1.add("one");
+		list1.add("two");
+		list1.add("three");
+		list1.add("four");
+		list1.add("five");
+		
+		
+		list2.add(1);
+		list2.add(2);
+		list2.add(3);
+		list2.add(4);
+		list2.add(5);
+		
+	}
+}
